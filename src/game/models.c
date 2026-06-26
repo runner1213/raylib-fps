@@ -363,3 +363,28 @@ int AkGetReserveAmmo(void) {
 bool AkIsReloading(void) {
     return reloadTimer > 0.0f;
 }
+
+void AkAddReserveAmmo(int amount) {
+    reserveAmmo += amount;
+}
+
+void AkReset(void) {
+    for (int i = 0; i < SMOKE_PARTICLE_COUNT; i++) {
+        smokeParticles[i] = (SmokeParticle){ 0 };
+    }
+
+    for (int i = 0; i < TRACER_COUNT; i++) {
+        tracers[i] = (BulletTracer){ 0 };
+    }
+
+    nextSmokeParticle = 0;
+    nextTracer = 0;
+    aimAmount = 0.0f;
+    fireCooldown = 0.0f;
+    flashTimer = 0.0f;
+    recoil = 0.0f;
+    reloadTimer = 0.0f;
+    shotThisFrame = false;
+    magazineAmmo = AK_MAGAZINE_SIZE;
+    reserveAmmo = 90;
+}

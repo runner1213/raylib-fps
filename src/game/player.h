@@ -17,10 +17,13 @@ typedef struct Player {
     float verticalVelocity;
     float yaw;
     float pitch;
+    int health;
+    int maxHealth;
     bool grounded;
 } Player;
 
 Player Player_Create(Vector3 position);
 void Player_Update(Player *player, Camera3D *camera, const World *world);
+void Player_TakeDamage(Player *player, int damage);
 
 #endif

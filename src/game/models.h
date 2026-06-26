@@ -12,5 +12,7 @@ bool AkWasShotThisFrame(void);
 int AkGetMagazineAmmo(void);
 int AkGetReserveAmmo(void);
 bool AkIsReloading(void);
+void AkAddReserveAmmo(int amount);
+void AkReset(void);
 
 #endif //SHMUP_MODELS_H

@@ -15,6 +15,8 @@ Player Player_Create(Vector3 position) {
         .verticalVelocity = 0.0f,
         .yaw = -90.0f,
         .pitch = 0.0f,
+        .health = 100,
+        .maxHealth = 100,
         .grounded = true
     };
 }
@@ -101,4 +103,12 @@ void Player_Update(Player *player, Camera3D *camera, const World *world) {
     };
 
     camera->target = Vector3Add(camera->position, forward);
+}
+
+void Player_TakeDamage(Player *player, int damage) {
+    player->health -= damage;
+
+    if (player->health < 0) {
+        player->health = 0;
+    }
 }
