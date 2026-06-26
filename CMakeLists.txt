@@ -5,11 +5,30 @@ set(CMAKE_C_STANDARD 11)
 
 include(FetchContent)
 
-FetchContent_Declare(
-        raylib
-        GIT_REPOSITORY https://github.com/raysan5/raylib.git
-        GIT_TAG 5.5
-)
+set(FETCHCONTENT_BASE_DIR "${CMAKE_SOURCE_DIR}/.deps")
+set(FETCHCONTENT_UPDATES_DISCONNECTED ON)
+
+set(RAYLIB_LOCAL_SOURCE_DIR "")
+
+if(EXISTS "${CMAKE_SOURCE_DIR}/.deps/raylib-src/CMakeLists.txt")
+    set(RAYLIB_LOCAL_SOURCE_DIR "${CMAKE_SOURCE_DIR}/.deps/raylib-src")
+elseif(EXISTS "${CMAKE_SOURCE_DIR}/cmake-build-debug/_deps/raylib-src/CMakeLists.txt")
+    set(RAYLIB_LOCAL_SOURCE_DIR "${CMAKE_SOURCE_DIR}/cmake-build-debug/_deps/raylib-src")
+endif()
+
+if(RAYLIB_LOCAL_SOURCE_DIR)
+    FetchContent_Declare(
+            raylib
+            SOURCE_DIR "${RAYLIB_LOCAL_SOURCE_DIR}"
+    )
+else()
+    FetchContent_Declare(
+            raylib
+            GIT_REPOSITORY https://github.com/raysan5/raylib.git
+            GIT_TAG 5.5
+    )
+endif()
+
 FetchContent_MakeAvailable(raylib)
 
 add_executable(shmup src/main.c

@@ -1,5 +1,6 @@
 # Environment
 .env
+.deps/
 
 # CMake
 cmake-build-*/
