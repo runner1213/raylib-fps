@@ -1,0 +1,9 @@
+#ifndef EMBEDDED_ASSETS_H
+#define EMBEDDED_ASSETS_H
+
+static const unsigned char AK_MODEL_DATA[] = {
+@AK_BYTES_C@
+};
+static const unsigned int AK_MODEL_SIZE = sizeof(AK_MODEL_DATA);
+
+#endif

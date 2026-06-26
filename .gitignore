@@ -1,0 +1,17 @@
+# Environment
+.env
+
+# CMake
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+Makefile
+
+# IDE
+.idea/
+.vscode/
+
+# macOS
+.DS_Store

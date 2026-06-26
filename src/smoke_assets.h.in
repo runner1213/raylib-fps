@@ -1,0 +1,11 @@
+#ifndef SMOKE_ASSETS_H
+#define SMOKE_ASSETS_H
+
+static const unsigned char SMOKE_TEXTURE_DATA[] = {
+@SMOKE_BYTES_C@
+};
+
+static const unsigned int SMOKE_TEXTURE_SIZE = sizeof(SMOKE_TEXTURE_DATA);
+static const unsigned int HAS_SMOKE_TEXTURE = @HAS_SMOKE_TEXTURE@;
+
+#endif
